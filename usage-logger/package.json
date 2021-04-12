@@ -1,0 +1,26 @@
+{
+  "name": "insomnia-plugin-resurfaceio-logger",
+  "version": "1.0.0",
+  "main": "plugin.js",
+  "insomnia": {
+    "name": "usage-logger",
+    "displayName": "Resurface Usage Logger",
+    "description": "Library for usage logging",
+    "images": {
+      "icon": "icon.svg",
+      "cover": "cover.svg"
+    },
+    "publisher": {
+      "name": "ResurfaceLabs",
+      "icon": "https://resurface.io/assets/images/logo-favicon.png"
+    },
+    "applications": { 
+      "designer": "*",
+      "core": "*",
+      "cli": "*"
+     }
+  },
+  "dependencies": {
+    "resurfaceio-logger": "latest"
+  }
+}
