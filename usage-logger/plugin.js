@@ -1,19 +1,28 @@
 const { HttpLogger, HttpMessage, HttpRequestImpl, HttpResponseImpl } = require('resurfaceio-logger');
 const { URL } = require('url');
 
-const logger = new HttpLogger({url: "http://localhost:4001/message", rules: "include debug"});
+let logger, loggerEnv = { url: null, enabled: null, rules: null };
+let firstTime = true;
 let request, response;
 let request_body, response_body;
 let started = 0;
 
 module.exports.requestHooks = [
     context => {
+        loggerEnv.url = context.request.getEnvironmentVariable('USAGE_LOGGERS_URL');
+        let x = context.request.getEnvironmentVariable('USAGE_LOGGERS_DISABLE');
+        loggerEnv.enabled = context.request.getEnvironmentVariable('USAGE_LOGGERS_DISABLE') != true;
+        loggerEnv.rules = context.request.getEnvironmentVariable('USAGE_LOGGERS_RULES');
+        if (firstTime || logger.url != loggerEnv.url || logger.enabled != loggerEnv.enabled) {
+            logger = new HttpLogger(loggerEnv);
+            firstTime = false;
+        }
         started = logger.hrmillis;
         request = new HttpRequestImpl();
         const url = new URL(context.request.getUrl());
         request.protocol = url.protocol.split(':')[0];
         request.hostname = url.host;
-        request.url = url.pathname;
+        request.url = url.pathname + url.search + url.hash;
         context.request.getHeaders().forEach(header => {
             request.addHeader(header.name, header.value);
         });
@@ -25,7 +34,6 @@ module.exports.requestHooks = [
         });
         request.method = context.request.getMethod();
         request_body = context.request.getBody().text;
-        // HttpMessage.send(logger, request);
     }
 ];
 
