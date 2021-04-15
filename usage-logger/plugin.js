@@ -50,6 +50,10 @@ module.exports.responseHooks = [
     context => {
         response = new HttpResponseImpl();
         response.statusCode = context.response.getStatusCode();
+        // Feature unavailable until the next Insomnia update
+        // context.response.getHeaders().forEach(header => {
+        //     response.addHeader(header.name, header.value);
+        // });
         response_body = context.response.getBody().text;
         const now = Date.now().toString();
         const interval = (logger.hrmillis - started).toString();
