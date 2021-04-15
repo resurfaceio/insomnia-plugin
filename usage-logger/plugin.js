@@ -1,21 +1,30 @@
-const { HttpLogger, HttpMessage, HttpRequestImpl, HttpResponseImpl } = require('resurfaceio-logger');
+const {
+    HttpLogger,
+    HttpMessage,
+    HttpRequestImpl,
+    HttpResponseImpl
+} = require('resurfaceio-logger');
+
 const { URL } = require('url');
 
-let logger, loggerEnv = { url: null, enabled: null, rules: null };
-let firstTime = true;
-let request, response;
-let request_body, response_body;
-let started = 0;
+let logger, request, response, request_body, response_body;
+let environment = {url: null, enabled: null, rules: null}, started = 0;
 
 module.exports.requestHooks = [
     context => {
-        loggerEnv.url = context.request.getEnvironmentVariable('USAGE_LOGGERS_URL');
-        let x = context.request.getEnvironmentVariable('USAGE_LOGGERS_DISABLE');
-        loggerEnv.enabled = context.request.getEnvironmentVariable('USAGE_LOGGERS_DISABLE') != true;
-        loggerEnv.rules = context.request.getEnvironmentVariable('USAGE_LOGGERS_RULES');
-        if (firstTime || logger.url != loggerEnv.url || logger.enabled != loggerEnv.enabled) {
-            logger = new HttpLogger(loggerEnv);
-            firstTime = false;
+        environment.url = context.request
+        .getEnvironmentVariable('USAGE_LOGGERS_URL');
+        environment.enabled = context.request
+        .getEnvironmentVariable('USAGE_LOGGERS_DISABLE') != true;
+        const rules = context.request
+        .getEnvironmentVariable('USAGE_LOGGERS_RULES');
+        if (logger == undefined 
+            || logger.url != environment.url
+            || environment.rules != rules) {
+            environment.rules = rules;
+            logger = new HttpLogger(environment);
+        } else if (logger.enabled != environment.enabled) {
+            environment.enabled ? logger.enable() : logger.disable();
         }
         started = logger.hrmillis;
         request = new HttpRequestImpl();
@@ -44,6 +53,14 @@ module.exports.responseHooks = [
         response_body = context.response.getBody().text;
         const now = Date.now().toString();
         const interval = (logger.hrmillis - started).toString();
-        HttpMessage.send(logger, request, response, response_body, request_body, now, interval);
+        HttpMessage.send(
+            logger,
+            request,
+            response,
+            response_body,
+            request_body,
+            now,
+            interval
+        );
     }
 ];
