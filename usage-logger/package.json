@@ -1,11 +1,11 @@
 {
-  "name": "insomnia-plugin-resurfaceio-logger",
+  "name": "insomnia-plugin-usage-logger",
   "version": "1.0.0",
   "main": "plugin.js",
   "insomnia": {
     "name": "usage-logger",
-    "displayName": "Resurface Usage Logger",
-    "description": "Library for usage logging",
+    "displayName": "API Usage Logger",
+    "description": "Log request and response details for every API call",
     "images": {
       "icon": "icon.svg",
       "cover": "cover.svg"
