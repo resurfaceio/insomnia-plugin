@@ -1,6 +1,7 @@
 # Insomnia Usage Logger
 
-API usage logger plugin for Insomnia. Easily log API requests and responses to your own <a href="https://resurface.io">system of record</a>.
+Easily log API requests and responses made with Insomnia.
+Store and explore them using your own <a href="https://resurface.io">system of record</a>.
 
 ## Requirements
 
