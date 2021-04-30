@@ -40,10 +40,10 @@ Coming soon
 ## Manual installation
 
 - Install dependencies using `npm i`
-- Place the `usage-logger` directory inside:
-  - MacOS: ~/Library/Application\ Support/Insomnia/plugins/
-  - Windows: %APPDATA%\Insomnia\plugins\
-  - Linux: $XDG_CONFIG_HOME/Insomnia/plugins/ or ~/.config/Insomnia/plugins/
+- Place `usage-logger` folder inside:
+  - **MacOS**: `~/Library/Application\ Support/Insomnia/plugins/`
+  - **Windows**: `%APPDATA%\Insomnia\plugins\`
+  - **Linux**: `$XDG_CONFIG_HOME/Insomnia/plugins/ or ~/.config/Insomnia/plugins/`
 
 <a name="privacy"/>
 
