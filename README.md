@@ -18,9 +18,19 @@ Store and explore them using your own <a href="https://resurface.io">system of r
 
 <img src="https://github.com/resurfaceio/insomnia-plugin-usage-logger/blob/master/img/insomnia_env.gif" width="768" height="400" />
 
-That's it!<br/>Happy loggin' 📝
+That's it!
 
 <a name="envvars"/>
+
+## Usage
+
+- Make sure to select the [environment you created before](#setup) (also, make sure the plugin is enabled).
+- Use Insomnia as you would normally.
+- Go to `http://localhost:4002` to explore all your logs using the included <a href="https://resurface.io#explore">API Explorer</a>
+
+<img src="https://github.com/resurfaceio/insomnia-plugin-usage-logger/blob/master/img/insomnia_usage.gif" width="768" height="400" />
+
+Happy loggin' 📝
 
 ## Environment variables
 
@@ -31,17 +41,11 @@ The environment variable `USAGE_LOGGERS_URL` stores this address, which by defau
 #### ✔ All API calls are filtered using a set of rules (Optional)
 The environment variable `USAGE_LOGGERS_RULES` stores these rules. [Learn more](#privacy)
 #### ✔ What if I want to disable the Logger? (Optional)
-You can! By setting the environment variable `USAGE_LOGGERS_DISABLE` to `true` the logger will be disabled and no API calls will be logged.<br/>In addition, if you're not using any other environment variables, you can just disable the environment and no API calls will be logged until you select the environment again.
+You can! By setting the environment variable `USAGE_LOGGERS_DISABLE` to `true` the logger will be disabled and no API calls will be logged.
+
+In addition, if you're not using any other environment variables, you can just disable the environment and no API calls will be logged until you select the environment again.
 
 <img src="https://github.com/resurfaceio/insomnia-plugin-usage-logger/blob/master/img/insomnia_env_disable.gif" width="768" height="400" />
-
-## Usage
-
-- Make sure to select the [environment you created before](#setup) (also, make sure the plugin is enabled).
-- Use Insomnia as you would normally.
-- Go to `http://localhost:4002` to explore all your logs using the included <a href="https://resurface.io#explore">API Explorer</a>
-
-<img src="https://github.com/resurfaceio/insomnia-plugin-usage-logger/blob/master/img/insomnia_usage.gif" width="768" height="400" />
 
 <a name="manual"/>
 
