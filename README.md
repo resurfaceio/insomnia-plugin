@@ -10,20 +10,25 @@ Store and explore them using your own <a href="https://resurface.io">system of r
 
 ## Set up
 
-- Go to Insomnia > Preferences > Plugins, type in `insomnia-plugin-usage-logger` and click Install Plugin
-- Alternatively, check out the [manual installation](#manual)
-- Create a new Environment for the [variables](#envvars) used by the logger
-
-<img src="https://github.com/resurfaceio/insomnia-plugin-usage-logger/blob/master/img/insomnia_env.gif" width="768" height="400" />
+- Go to *Insomnia > Preferences > Plugins*, type in `insomnia-plugin-usage-logger` and click **Install Plugin**.
+- Alternatively, check out the [manual installation](#manual).
+- That's it!
+- For further customization, take a look at the [Environment variables](#envvars) section.
 
 <a name="envvars"/>
 
 ## Environment variables
 
+- Create a new Environment for the [variables](#envvars) used by the logger
+
+<img src="https://github.com/resurfaceio/insomnia-plugin-usage-logger/blob/master/img/insomnia_env.gif" width="768" height="400" />
+
 #### All API calls are sent to the database running inside the docker container
-The environment variable `USAGE_LOGGERS_URL` stores this address, which should be `http://localhost:4001/message` by default
-#### All API calls are filtered using a set of rules</a>
+The environment variable `USAGE_LOGGERS_URL` stores this address, which defaults to `http://localhost:4001/message`
+#### All API calls are filtered using a set of rules
 The environment variable `USAGE_LOGGERS_RULES` stores these rules. [Learn more](#privacy)
+#### What if I want to disable the Logger?
+You can! By setting the environment variable `USAGE_LOGGERS_DISABLE` to `true` the logger will be disabled and no API calls will be logged.
 
 ## Usage
 
