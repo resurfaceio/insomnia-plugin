@@ -8,6 +8,8 @@ Store and explore them using your own <a href="https://resurface.io">system of r
 - Install `docker`
 - Sign up for [Resurface Pilot Edition](https://resurface.io/pilot-installation) access (it's free!)
 
+<a name="setup"/>
+
 ## Set up
 
 - Go to *Insomnia > Preferences > Plugins*, type in `insomnia-plugin-usage-logger` and click **Install Plugin**. <br/>
@@ -35,7 +37,11 @@ You can! By setting the environment variable `USAGE_LOGGERS_DISABLE` to `true` t
 
 ## Usage
 
-Coming soon
+- Make sure to select the [environment you created before](#setup) (also, make sure the plugin is enabled).
+- Use Insomnia as you would normally.
+- Go to `http://localhost:4002` to explore all your logs using the included <a href="https://resurface.io#explore">API Explorer</a>
+
+<img src="https://github.com/resurfaceio/insomnia-plugin-usage-logger/blob/master/img/insomnia_usage.gif" width="768" height="400" />
 
 <a name="manual"/>
 
