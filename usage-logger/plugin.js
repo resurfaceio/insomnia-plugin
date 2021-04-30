@@ -6,6 +6,7 @@ const {
 } = require('resurfaceio-logger');
 
 const { URL } = require('url');
+const DEFAULT_URL = "http://localhost:4001/message";
 
 let logger, request, response, request_body, response_body;
 let environment = {url: null, enabled: null, rules: null}, started = 0;
@@ -13,7 +14,7 @@ let environment = {url: null, enabled: null, rules: null}, started = 0;
 module.exports.requestHooks = [
     context => {
         environment.url = context.request
-        .getEnvironmentVariable('USAGE_LOGGERS_URL');
+        .getEnvironmentVariable('USAGE_LOGGERS_URL') || DEFAULT_URL;
         environment.enabled = context.request
         .getEnvironmentVariable('USAGE_LOGGERS_DISABLE') != true;
         const rules = context.request
