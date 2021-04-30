@@ -29,7 +29,9 @@ The environment variable `USAGE_LOGGERS_URL` stores this address, which by defau
 #### ✔ All API calls are filtered using a set of rules (Optional)
 The environment variable `USAGE_LOGGERS_RULES` stores these rules. [Learn more](#privacy)
 #### ✔ What if I want to disable the Logger? (Optional)
-You can! By setting the environment variable `USAGE_LOGGERS_DISABLE` to `true` the logger will be disabled and no API calls will be logged.<br/>In addition, if you're no using any other environment variables, you can just disable the environment and no API calls will be logged until you select the environment again.
+You can! By setting the environment variable `USAGE_LOGGERS_DISABLE` to `true` the logger will be disabled and no API calls will be logged.<br/>In addition, if you're not using any other environment variables, you can just disable the environment and no API calls will be logged until you select the environment again.
+
+<img src="https://github.com/resurfaceio/insomnia-plugin-usage-logger/blob/master/img/insomnia_env_disable.gif" width="768" height="400" />
 
 ## Usage
 
