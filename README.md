@@ -10,13 +10,13 @@ Store and explore them using your own <a href="https://resurface.io">system of r
 
 ## Set up
 
-- Go to *Insomnia > Preferences > Plugins*, type in `insomnia-plugin-usage-logger` and click **Install Plugin**.
-- Alternatively, check out the [manual installation](#manual).
+- Go to *Insomnia > Preferences > Plugins*, type in `insomnia-plugin-usage-logger` and click **Install Plugin**. <br/>
+(Alternatively, check out the [manual installation](#manual).)
 - Create a new Environment to store the [variables](#envvars) used by the logger.
 
 <img src="https://github.com/resurfaceio/insomnia-plugin-usage-logger/blob/master/img/insomnia_env.gif" width="768" height="400" />
 
-- That's it! Happy loggin' 📝
+That's it!<br/>Happy loggin' 📝
 
 <a name="envvars"/>
 
@@ -40,7 +40,10 @@ Coming soon
 ## Manual installation
 
 - Install dependencies using `npm i`
-- Place usage-logger folder inside `~/.config/Insomnia/plugins/`
+- Place the `usage-logger` directory inside:
+  - MacOS: ~/Library/Application\ Support/Insomnia/plugins/
+  - Windows: %APPDATA%\Insomnia\plugins\
+  - Linux: $XDG_CONFIG_HOME/Insomnia/plugins/ or ~/.config/Insomnia/plugins/
 
 <a name="privacy"/>
 
