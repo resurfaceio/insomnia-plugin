@@ -8,23 +8,19 @@ Store and explore them using your own <a href="https://resurface.io">system of r
 - Install `docker`
 - Sign up for [Resurface Pilot Edition](https://resurface.io/pilot-installation) access (it's free!)
 
-<a name="setup"/>
-
 ## Set up
 
 - Go to *Insomnia > Preferences > Plugins*, type in `insomnia-plugin-usage-logger` and click **Install Plugin**. <br/>
-(Alternatively, check out the [manual installation](#manual).)
-- Create a new Environment to store the [variables](#envvars) used by the logger.
+(Alternatively, check out the [manual installation](#manual-installation).)
+- Create a new Environment to store the [variables](#environment-variables) used by the logger.
 
 <img src="https://github.com/resurfaceio/insomnia-plugin-usage-logger/blob/master/img/insomnia_env.gif" width="768" height="400" />
 
 That's it!
 
-<a name="envvars"/>
-
 ## Usage
 
-- Make sure to select the [environment you created before](#setup) (also, make sure the plugin is enabled).
+- Make sure to select the [environment you created before](#set-up) (also, make sure the plugin is enabled).
 - Use Insomnia as you would normally.
 - Go to `http://localhost:4002` to explore all your logs using the included <a href="https://resurface.io#explore">API Explorer</a>
 
@@ -39,15 +35,13 @@ This plugin has access to three environment variables, but only one them is requ
 #### ✔ All API calls are sent to the database running inside the docker container
 The environment variable `USAGE_LOGGERS_URL` stores this address, which by default should be `http://localhost:4001/message`
 #### ✔ All API calls are filtered using a set of rules (Optional)
-The environment variable `USAGE_LOGGERS_RULES` stores these rules. [Learn more](#privacy)
+The environment variable `USAGE_LOGGERS_RULES` stores these rules. [Learn more](#protecting-user-privacy)
 #### ✔ What if I want to disable the Logger? (Optional)
 You can! By setting the environment variable `USAGE_LOGGERS_DISABLE` to `true` the logger will be disabled and no API calls will be logged.
 
 In addition, if you're not using any other environment variables, you can just disable the environment and no API calls will be logged until you select the environment again.
 
 <img src="https://github.com/resurfaceio/insomnia-plugin-usage-logger/blob/master/img/insomnia_env_disable.gif" width="768" height="400" />
-
-<a name="manual"/>
 
 ## Manual installation
 
@@ -56,8 +50,6 @@ In addition, if you're not using any other environment variables, you can just d
   - **Windows**: `%APPDATA%\Insomnia\plugins\`
   - **Linux**: `$XDG_CONFIG_HOME/Insomnia/plugins/ or ~/.config/Insomnia/plugins/`
 - Install dependencies using `npm i`
-
-<a name="privacy"/>
 
 ## Protecting User Privacy
 
