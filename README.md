@@ -1,12 +1,11 @@
-# Insomnia Usage Logger
+# Resurface Insomnia Plugin
 
-Easily log API requests and responses made with Insomnia.
-Store and explore them using your own <a href="https://resurface.io">system of record</a>.
+Log API requests and responses made with Insomnia to your own <a href="https://resurface.io">system of record</a>.
 
 ## Requirements
 
-- Install `docker`
-- Sign up for [Resurface Pilot Edition](https://resurface.io/pilot-installation) access (it's free!)
+- docker
+- [Resurface](https://resurface.io/installation) (free Docker container)
 
 ## Set up
 
