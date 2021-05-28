@@ -7,6 +7,8 @@ const {
 
 const { URL } = require('url');
 
+const RESPONSE_BODY_LIMIT = 1024 * 1024;
+
 let logger, request, response, request_body, response_body;
 let environment = {url: null, enabled: null, rules: null}, started = 0;
 
@@ -53,7 +55,12 @@ module.exports.responseHooks = [
         context.response.getHeaders().forEach(header => {
             response.addHeader(header.name, header.value);
         });
-        response_body = context.response.getBody().text;
+        response_body = context.response.getBody();
+        if (response_body.length > RESPONSE_BODY_LIMIT) {
+            response_body = `{"overflowed: ${response_body.length}"}`;
+        } else {
+            response_body = response_body.toString();
+        }
         const now = Date.now().toString();
         const interval = (logger.hrmillis - started).toString();
         HttpMessage.send(
