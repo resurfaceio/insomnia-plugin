@@ -2,7 +2,8 @@ const {
     HttpLogger,
     HttpMessage,
     HttpRequestImpl,
-    HttpResponseImpl
+    HttpResponseImpl,
+    HttpRules
 } = require('resurfaceio-logger');
 
 const { URL } = require('url');
@@ -10,7 +11,12 @@ const { URL } = require('url');
 const RESPONSE_BODY_LIMIT = 1024 * 1024;
 
 let logger, request, response, request_body, response_body;
-let environment = {url: null, enabled: null, rules: null}, started = 0;
+let environment = {
+    url: null,
+    enabled: null,
+    rules: null,
+    body_limit: null
+}, started = 0;
 
 module.exports.requestHooks = [
     context => {
@@ -18,12 +24,15 @@ module.exports.requestHooks = [
         .getEnvironmentVariable('USAGE_LOGGERS_URL');
         environment.enabled = context.request
         .getEnvironmentVariable('USAGE_LOGGERS_DISABLE') != true;
-        const rules = context.request
-        .getEnvironmentVariable('USAGE_LOGGERS_RULES');
+        environment.rules = new HttpRules(context.request
+        .getEnvironmentVariable('USAGE_LOGGERS_RULES')).text;
+        const body_limit = context.request
+        .getEnvironmentVariable('USAGE_LOGGERS_LIMIT');
         if (logger == undefined 
-            || logger.url != environment.url
-            || environment.rules != rules) {
-            environment.rules = rules;
+            || logger.url !== environment.url
+            || logger.rules.text !== environment.rules
+            || environment.body_limit !== body_limit) {
+            environment.body_limit = body_limit;
             logger = new HttpLogger(environment);
         } else if (logger.enabled != environment.enabled) {
             environment.enabled ? logger.enable() : logger.disable();
@@ -50,19 +59,19 @@ module.exports.requestHooks = [
 
 module.exports.responseHooks = [
     context => {
+        const now = Date.now().toString();
+        const interval = (logger.hrmillis - started).toString();
         response = new HttpResponseImpl();
         response.statusCode = context.response.getStatusCode();
         context.response.getHeaders().forEach(header => {
             response.addHeader(header.name, header.value);
         });
         response_body = context.response.getBody();
-        if (response_body.length > RESPONSE_BODY_LIMIT) {
+        if (response_body.length > environment.body_limit) {
             response_body = `{"overflowed: ${response_body.length}"}`;
         } else {
             response_body = response_body.toString();
         }
-        const now = Date.now().toString();
-        const interval = (logger.hrmillis - started).toString();
         HttpMessage.send(
             logger,
             request,
