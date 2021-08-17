@@ -1,18 +1,43 @@
 {
   "name": "insomnia-plugin-usage-logger",
-  "version": "1.0.0",
+  "version": "0.1.0",
+  "description": "An Insomnia plugin for logging request and responses with Resurface.io",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/resurfaceio/insomnia-plugin"
+  },
+  "bugs": {
+    "url": "https://github.com/resurfaceio/insomnia-plugin/issues"
+  },
+  "keywords": [
+    "log",
+    "record",
+    "history",
+    "logger",
+    "monitor",
+    "observability",
+    "security",
+    "HTTP",
+    "request",
+    "response",
+    "API",
+    "gateway",
+    "resurface",
+    "insomnia",
+    "plugin"
+  ],
   "main": "plugin.js",
   "insomnia": {
-    "name": "usage-logger",
+    "name": "resurfaceio-usage-logger",
     "displayName": "API Usage Logger",
-    "description": "Log request and response details for every API call",
+    "description": "Log request and response details for every HTTP exchange",
     "images": {
-      "icon": "icon.svg",
-      "cover": "cover.svg"
+      "icon": "assets/plugin/icon.svg",
+      "cover": "assets/plugin/cover.svg"
     },
     "publisher": {
       "name": "ResurfaceLabs",
-      "icon": "https://resurface.io/assets/images/logo-favicon.png"
+      "icon": "https://github.com/resurfaceio/insomnia-plugin/tree/master/assets/plugin/icon-alt.svg"
     },
     "applications": { 
       "designer": "*",
