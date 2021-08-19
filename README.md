@@ -44,7 +44,7 @@ In addition, if you're not using any other environment variables, you can just d
 
 ## Manual installation
 
-- Place `usage-logger` folder inside:
+- Clone this repo inside:
   - **MacOS**: `~/Library/Application\ Support/Insomnia/plugins/`
   - **Windows**: `%APPDATA%\Insomnia\plugins\`
   - **Linux**: `$XDG_CONFIG_HOME/Insomnia/plugins/ or ~/.config/Insomnia/plugins/`
