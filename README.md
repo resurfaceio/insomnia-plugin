@@ -1,4 +1,4 @@
-# resurfaceio-insomnia-plugin
+# Resurface Insomnia Plugin
 
 Log API requests and responses made with Insomnia to your own <a href="https://resurface.io">system of record</a>.
 
@@ -13,7 +13,7 @@ Log API requests and responses made with Insomnia to your own <a href="https://r
 (Alternatively, check out the [manual installation](#manual-installation).)
 - Create a new Environment to store the [variables](#environment-variables) used by the logger.
 
-<img src="./assets/readme/insomnia_env.gif" width="768" height="400" />
+<img src="https://github.com/resurfaceio/insomnia-plugin/raw/master/assets/readme/insomnia_env.gif" width="768" height="400" />
 
 That's it!
 
@@ -23,7 +23,7 @@ That's it!
 - Use Insomnia as you would normally.
 - Go to `http://localhost:4002` to explore all your logs using the included <a href="https://resurface.io#explore">API Explorer</a>
 
-<img src="./assets/readme/insomnia_usage.gif" width="768" height="400" />
+<img src="https://github.com/resurfaceio/insomnia-plugin/raw/master/assets/readme/insomnia_usage.gif" width="768" height="400" />
 
 Happy loggin' 📝
 
@@ -40,7 +40,7 @@ You can! By setting the environment variable `USAGE_LOGGERS_DISABLE` to `true` t
 
 In addition, if you're not using any other environment variables, you can just disable the environment and no API calls will be logged until you select the environment again.
 
-<img src="./assets/readme/insomnia_env_disable.gif" width="768" height="400" />
+<img src="https://github.com/resurfaceio/insomnia-plugin/raw/master/assets/readme/insomnia_env_disable.gif" width="768" height="400" />
 
 ## Manual installation
 
