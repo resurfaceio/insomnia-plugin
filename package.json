@@ -2,14 +2,20 @@
   "name": "insomnia-plugin-usage-logger",
   "version": "0.1.0",
   "description": "An Insomnia plugin for logging request and response details using Resurface. More info at: https://resurface.io",
+  "main": "./src/plugin.js",
+  "scripts": {
+    "test": "mocha --reporter spec --timeout 10000 --full-trace"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/resurfaceio/insomnia-plugin"
+    "url": "git+https://github.com/resurfaceio/insomnia-plugin.git"
   },
+  "author": "Ramón Márquez (https://github.com/monrax)",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/resurfaceio/insomnia-plugin/issues"
   },
-  "homepage": "https://resurface.io/",
+  "homepage": "https://github.com/resurfaceio/insomnia-plugin#readme",
   "keywords": [
     "log",
     "record",
@@ -27,10 +33,6 @@
     "insomnia",
     "plugin"
   ],
-  "main": "plugin.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "insomnia": {
     "name": "resurfaceio-usage-logger",
     "displayName": "API Usage Logger",
@@ -43,13 +45,17 @@
       "name": "ResurfaceLabs",
       "icon": "https://github.com/resurfaceio/insomnia-plugin/tree/master/assets/plugin/icon-alt.svg"
     },
-    "applications": { 
+    "applications": {
       "designer": "*",
       "core": "*",
       "cli": "*"
-     }
+    }
   },
   "dependencies": {
     "resurfaceio-logger": "latest"
+  },
+  "devDependencies": {
+    "chai": "latest",
+    "mocha": "latest"
   }
 }

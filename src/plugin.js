@@ -1,3 +1,5 @@
+// © 2016-2021 Resurface Labs Inc.
+
 const {
     HttpLogger,
     HttpMessage,
@@ -15,7 +17,8 @@ let environment = {
     url: null,
     enabled: null,
     rules: null,
-    body_limit: null
+    body_limit: null,
+    queue: null
 }, started = 0;
 
 module.exports.requestHooks = [
@@ -27,17 +30,20 @@ module.exports.requestHooks = [
         environment.rules = new HttpRules(context.request
         .getEnvironmentVariable('USAGE_LOGGERS_RULES')).text;
         const body_limit = context.request
-        .getEnvironmentVariable('USAGE_LOGGERS_LIMIT');
+        .getEnvironmentVariable('USAGE_LOGGERS_LIMIT') || RESPONSE_BODY_LIMIT;
+        environment.queue = "USAGE_LOGGERS_QUEUE" in context ? 
+        context.USAGE_LOGGERS_QUEUE : null;
         if (logger == undefined 
             || logger.url !== environment.url
             || logger.rules.text !== environment.rules
-            || environment.body_limit !== body_limit) {
+            || environment.body_limit !== body_limit
+            || context.USAGE_LOGGERS_QUEUE) {
             environment.body_limit = body_limit;
             logger = new HttpLogger(environment);
         } else if (logger.enabled != environment.enabled) {
             environment.enabled ? logger.enable() : logger.disable();
         }
-        started = logger.hrmillis;
+        started = HttpLogger.hrmillis;
         request = new HttpRequestImpl();
         const url = new URL(context.request.getUrl());
         request.protocol = url.protocol.split(':')[0];
@@ -60,7 +66,7 @@ module.exports.requestHooks = [
 module.exports.responseHooks = [
     context => {
         const now = Date.now().toString();
-        const interval = (logger.hrmillis - started).toString();
+        const interval = (HttpLogger.hrmillis - started).toString();
         response = new HttpResponseImpl();
         response.statusCode = context.response.getStatusCode();
         context.response.getHeaders().forEach(header => {
