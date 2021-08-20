@@ -9,8 +9,12 @@ Log API requests and responses made with Insomnia to your own <a href="https://r
 
 ## Set up
 
-- Go to *Insomnia > Preferences > Plugins*, type in `insomnia-plugin-usage-logger` and click **Install Plugin**. <br/>
+- Go to *Insomnia > Preferences > Plugins*, type in `insomnia-plugin-usage-logger` and click **Install Plugin**.
+
+<img src="https://github.com/resurfaceio/insomnia-plugin/raw/master/assets/readme/install_plugin.gif" width="768" height="400" />
+
 (Alternatively, check out the [manual installation](#manual-installation).)
+
 - Create a new Environment to store the [variables](#environment-variables) used by the logger.
 
 <img src="https://github.com/resurfaceio/insomnia-plugin/raw/master/assets/readme/insomnia_env.gif" width="768" height="400" />
