@@ -44,7 +44,7 @@
     },
     "publisher": {
       "name": "ResurfaceLabs",
-      "icon": "https://github.com/resurfaceio/insomnia-plugin/tree/master/assets/plugin/icon-alt.svg"
+      "icon": "https://raw.githubusercontent.com/resurfaceio/insomnia-plugin/master/assets/plugin/icon-alt.svg"
     },
     "applications": {
       "designer": "*",
