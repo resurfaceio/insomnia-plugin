@@ -52,6 +52,7 @@ module.exports.requestHooks = [
         context.request.getHeaders().forEach(header => {
             request.addHeader(header.name, header.value);
         });
+        request.addHeader("user-agent", "insomnia/2021");
         context.request.getParameters().forEach(param => {
             request.addQueryParam(param.name, param.value);
         });
