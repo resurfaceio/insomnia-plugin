@@ -1,6 +1,6 @@
 {
   "name": "insomnia-plugin-usage-logger",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "An Insomnia plugin for logging request and response details using Resurface. More info at: https://resurface.io",
   "main": "./src/plugin.js",
   "files": ["src", "test", "assets/plugin"],
