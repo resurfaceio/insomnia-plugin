@@ -1,4 +1,4 @@
-// © 2016-2021 Resurface Labs Inc.
+// © 2016-2022 Resurface Labs Inc.
 
 const {
     HttpLogger,
@@ -45,6 +45,7 @@ module.exports.requestHooks = [
         }
         started = HttpLogger.hrmillis;
         request = new HttpRequestImpl();
+        appInfo = context.app.getInfo();
         const url = new URL(context.request.getUrl());
         request.protocol = url.protocol.split(':')[0];
         request.hostname = url.host;
@@ -52,7 +53,7 @@ module.exports.requestHooks = [
         context.request.getHeaders().forEach(header => {
             request.addHeader(header.name, header.value);
         });
-        request.addHeader("user-agent", "insomnia/2021");
+        request.addHeader("user-agent", `insomnia/${appInfo.version}`);
         context.request.getParameters().forEach(param => {
             request.addQueryParam(param.name, param.value);
         });

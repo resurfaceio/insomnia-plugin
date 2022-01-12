@@ -25,7 +25,7 @@ That's it!
 
 - Make sure to select the [environment you created before](#set-up) (also, make sure the plugin is enabled).
 - Use Insomnia as you would normally.
-- Go to `http://localhost:4002` to explore all your logs using the included <a href="https://resurface.io#explore">API Explorer</a>
+- Go to `http://localhost:7700` to explore all your logs using the included <a href="https://resurface.io#explore">API Explorer</a>
 
 <img src="https://github.com/resurfaceio/insomnia-plugin/raw/master/assets/readme/insomnia_usage.gif" width="768" height="400" />
 
@@ -36,7 +36,7 @@ Happy loggin' 📝
 This plugin has access to three environment variables, but only one them is required for the logger to work properly.
 
 #### ✔ All API calls are sent to the database running inside the docker container
-The environment variable `USAGE_LOGGERS_URL` stores this address, which by default should be `http://localhost:4001/message`
+The environment variable `USAGE_LOGGERS_URL` stores this address, which by default should be `http://localhost:7701/message`
 #### ✔ All API calls are filtered using a set of rules (Optional)
 The environment variable `USAGE_LOGGERS_RULES` stores these rules. [Learn more](#protecting-user-privacy)
 #### ✔ What if I want to disable the Logger? (Optional)
@@ -63,4 +63,4 @@ but logging rules are easily customized to meet the needs of any application.
 <a href="https://resurface.io/logging-rules">Logging rules documentation</a>
 
 ---
-<small>&copy; 2016-2021 <a href="https://resurface.io">Resurface Labs Inc.</a></small>
+<small>&copy; 2016-2022 <a href="https://resurface.io">Resurface Labs Inc.</a></small>
