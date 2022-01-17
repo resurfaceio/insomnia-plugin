@@ -11,7 +11,8 @@ Log API requests and responses made with Insomnia to your own <a href="https://r
 
 - Go to *Insomnia > Preferences > Plugins*, type in `insomnia-plugin-usage-logger` and click **Install Plugin**.
 
-<img src="https://github.com/resurfaceio/insomnia-plugin/raw/master/assets/readme/install_plugin.gif" width="768" height="400" />
+https://user-images.githubusercontent.com/7117255/149831345-df77da6c-2d60-4077-b58b-7850574ec39d.mov
+
 
 (Alternatively, check out the [manual installation](#manual-installation).)
 
@@ -24,7 +25,7 @@ Log API requests and responses made with Insomnia to your own <a href="https://r
 }
 ```
 
-<img src="https://github.com/resurfaceio/insomnia-plugin/raw/master/assets/readme/insomnia_env.gif" width="768" height="400" />
+https://user-images.githubusercontent.com/7117255/149831370-d715c83b-2bc4-4c85-9632-3630da308335.mov
 
 That's it!
 
@@ -34,11 +35,11 @@ That's it!
 - Use Insomnia as you would normally.
 - Go to `http://localhost:7700` to explore all your logs using the included <a href="https://resurface.io#explore">API Explorer</a>
 
-<img src="https://github.com/resurfaceio/insomnia-plugin/raw/master/assets/readme/insomnia_usage.gif" width="768" height="400" />
+https://user-images.githubusercontent.com/7117255/149831462-407eebdd-4afc-473b-9df7-fbdc3338b722.mp4
 
 - You can always disable the plugin if you want stop logging API calls temporarily
 
-//TODO
+https://user-images.githubusercontent.com/7117255/149831622-94f83eec-53a9-42ba-b768-17c6a6993d4b.mov
 
 Happy loggin' 📝
 
