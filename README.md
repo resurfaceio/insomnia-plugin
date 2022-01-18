@@ -11,35 +11,36 @@ Log API requests and responses made with Insomnia to your own <a href="https://r
 
 - Go to *Insomnia > Preferences > Plugins*, type in `insomnia-plugin-usage-logger` and click **Install Plugin**.
 
-https://user-images.githubusercontent.com/7117255/149831345-df77da6c-2d60-4077-b58b-7850574ec39d.mov
+  <img src="https://github.com/resurfaceio/insomnia-plugin/raw/master/assets/readme/install_plugin.gif" width="768" height="400" />
 
 
-(Alternatively, check out the [manual installation](#manual-installation).)
+  (Alternatively, check out the [manual installation](#manual-installation).)
 
 - Add the [variables](#environment-variables) used by the logger to your Base Environment (or create a separate new Sub Environment for them).
 
-```json
-{
-    "USAGE_LOGGERS_URL": "http://localhost:7701/message",
-    "USAGE_LOGGERS_RULES": "include debug"
-}
-```
+  ```json
+  {
+      "USAGE_LOGGERS_URL": "http://localhost:7701/message",
+      "USAGE_LOGGERS_RULES": "include debug"
+  }
+  ```
 
-https://user-images.githubusercontent.com/7117255/149831370-d715c83b-2bc4-4c85-9632-3630da308335.mov
+  <img src="https://github.com/resurfaceio/insomnia-plugin/raw/master/assets/readme/insomnia_env.gif" width="768" height="400" />
+
 
 That's it!
 
 ## Usage
 
-- Make sure the plugin is enabled (also, if you [created a new sub environment](#set-up) make sure to select it).
+- Make sure the plugin is enabled (also, if you created a new sub environment make sure to select it).
 - Use Insomnia as you would normally.
 - Go to `http://localhost:7700` to explore all your logs using the included <a href="https://resurface.io#explore">API Explorer</a>
 
-https://user-images.githubusercontent.com/7117255/149831462-407eebdd-4afc-473b-9df7-fbdc3338b722.mp4
+  <img src="https://github.com/resurfaceio/insomnia-plugin/raw/master/assets/readme/insomnia_usage.gif" width="768" height="400" />
 
 - You can always disable the plugin if you want stop logging API calls temporarily
 
-https://user-images.githubusercontent.com/7117255/149831622-94f83eec-53a9-42ba-b768-17c6a6993d4b.mov
+  <img src="https://github.com/resurfaceio/insomnia-plugin/raw/master/assets/readme/insomnia_disable.gif" width="768" height="400" />
 
 Happy loggin' 📝
 
