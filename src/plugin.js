@@ -76,7 +76,7 @@ module.exports.responseHooks = [
         });
         response_body = context.response.getBody();
         if (response_body.length > environment.body_limit) {
-            response_body = `{"overflowed: ${response_body.length}"}`;
+            response_body = `{"overflowed": "${response_body.length}"}`;
         } else {
             response_body = response_body.toString();
         }
