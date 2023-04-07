@@ -1,6 +1,8 @@
 # Resurface Insomnia Plugin
+Easily log API requests and responses to your own <a href="https://resurface.io">security data lake</a>.
 
-Log API requests and responses made with Insomnia to your own <a href="https://resurface.io">system of record</a>.
+[![License](https://img.shields.io/github/license/resurfaceio/insomnia-plugin)](https://github.com/resurfaceio/insomnia-plugin/blob/master/LICENSE)
+[![Contributing](https://img.shields.io/badge/contributions-welcome-green.svg)](https://github.com/resurfaceio/insomnia-plugin/blob/master/CONTRIBUTING.md)
 
 ## Requirements
 
