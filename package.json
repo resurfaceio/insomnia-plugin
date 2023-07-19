@@ -43,7 +43,7 @@
       "cover": "assets/plugin/cover.svg"
     },
     "publisher": {
-      "name": "Resurface Labs",
+      "name": "resurface.io",
       "icon": "https://raw.githubusercontent.com/resurfaceio/insomnia-plugin/master/assets/plugin/icon-alt.svg"
     },
     "applications": {
