@@ -76,4 +76,4 @@ but logging rules are easily customized to meet the needs of any application.
 <a href="https://resurface.io/logging-rules">Logging rules documentation</a>
 
 ---
-<small>&copy; 2016-2023 <a href="https://resurface.io">Graylog, Inc.</a></small>
+<small>&copy; 2016-2024 <a href="https://resurface.io">Graylog, Inc.</a></small>
