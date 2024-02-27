@@ -4,10 +4,17 @@ const { expect } = require('chai');
 const hooks = require('../src/plugin');
 const helper = require('./helper');
 
-
 function getContext() {
     const context = {
         "USAGE_LOGGERS_QUEUE": [],
+        "app": {
+            getInfo() {
+                return {
+                    "version": "test",
+                    "platform": "test"
+                }
+            }
+        },
         "request": {
             environment: {
                 "USAGE_LOGGERS_URL": null,
@@ -84,8 +91,8 @@ describe('Plugin', () => {
         expect(msg).to.contain("[\"response_code\",\"200\"]");
         expect(msg).to.contain("[\"now\",\"");
         expect(msg).to.contain("[\"interval\",\"");
+        expect(msg).to.contain("[\"request_header:user-agent\",\"insomnia/test\"]");
         expect(msg).to.not.contain("request_body");
-        expect(msg).to.not.contain("request_header");
         expect(msg).to.not.contain("request_param");
         expect(msg).to.not.contain("response_body");
         expect(msg).to.not.contain("response_header");
@@ -102,12 +109,12 @@ describe('Plugin', () => {
         expect(helper.parseable(msg)).to.be.true;
         expect(msg).to.contain("[\"request_method\",\"GET\"]");
         expect(msg).to.contain("[\"request_url\",\"" + helper.MOCK_URL + "\"]");
+        expect(msg).to.contain("[\"request_header:user-agent\",\"insomnia/test\"]");
         expect(msg).to.contain("[\"response_body\",\"" + helper.MOCK_HTML + "\"]");
         expect(msg).to.contain("[\"response_code\",\"200\"]");
         expect(msg).to.contain("[\"response_header:a\",\"Z\"]");
         expect(msg).to.contain("[\"response_header:content-type\",\"text/html\"]");
         expect(msg).to.not.contain("request_body");
-        expect(msg).to.not.contain("request_header");
         expect(msg).to.not.contain("request_param");
     });
 
@@ -122,6 +129,7 @@ describe('Plugin', () => {
         expect(helper.parseable(msg)).to.be.true;
         expect(msg).to.contain("[\"request_method\",\"POST\"]");
         expect(msg).to.contain("[\"request_url\",\"" + helper.MOCK_URL + '?' + helper.MOCK_QUERY_STRING + "\"]");
+        expect(msg).to.contain("[\"request_header:user-agent\",\"insomnia/test\"]");
         expect(msg).to.contain("[\"request_header:content-type\",\"Application/JSON\"]");
         expect(msg).to.contain("[\"request_body\",\"" + helper.MOCK_JSON_ESCAPED + "\"]");
         expect(msg).to.contain("[\"response_body\",\"" + helper.MOCK_JSON_ESCAPED + "\"]");
@@ -141,6 +149,7 @@ describe('Plugin', () => {
         expect(helper.parseable(msg)).to.be.true;
         expect(msg).to.contain("[\"request_method\",\"POST\"]");
         expect(msg).to.contain("[\"request_url\",\"" + helper.MOCK_URL + '?' + helper.MOCK_QUERY_STRING + "\"]");
+        expect(msg).to.contain("[\"request_header:user-agent\",\"insomnia/test\"]");
         expect(msg).to.contain("[\"request_header:content-type\",\"Application/JSON\"]");
         expect(msg).to.contain("[\"request_header:a\",\"1, 2\"]");
         expect(msg).to.contain("[\"request_param:abc\",\"123, 234\"]");
