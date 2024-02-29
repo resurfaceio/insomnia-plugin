@@ -6,19 +6,24 @@ Easily log API requests and responses to your own <a href="https://resurface.io"
 
 ## Requirements
 
-- docker
-- [Resurface](https://resurface.io/installation) (free Docker container)
+- Kubernetes (we recommend [microk8s](https://ubuntu.com/tutorials/install-a-local-kubernetes-with-microk8s) for local installations)
+- [Graylog API Security](https://resurface.io/installation) -- first node is free!
 
 ## Set up
 
-- Go to *Insomnia > Preferences > Plugins*, type in `insomnia-plugin-usage-logger` and click **Install Plugin**.
+- Go to *Insomnia > Preferences > Plugins*
+- Type in 
+  ```
+  insomnia-plugin-usage-logger
+  ```
+- Click **Install Plugin**
 
   <img src="https://github.com/resurfaceio/insomnia-plugin/raw/master/assets/readme/install_plugin.gif" width="768" height="400" />
 
 
   (Alternatively, check out the [manual installation](#manual-installation).)
 
-- Add the [variables](#environment-variables) used by the logger to your Base Environment (or create a separate new Sub Environment for them).
+- Add the [variables](#environment-variables) used by the logger to your Base Environment (or create a separate new Private/Shared environment for it).
 
   ```json
   {
@@ -34,9 +39,9 @@ That's it!
 
 ## Usage
 
-- Make sure the plugin is enabled (also, if you created a new sub environment make sure to select it).
+- Make sure the plugin is enabled (also, if you created a new private/shared environment make sure to select it).
 - Use Insomnia as you would normally.
-- Go to `http://localhost:7700` to explore all your logs using the included <a href="https://resurface.io#explore">API Explorer</a>
+- Go to `http://localhost:7700` to explore all your logs using the included Graylog API Security web UI
 
   <img src="https://github.com/resurfaceio/insomnia-plugin/raw/master/assets/readme/insomnia_usage.gif" width="768" height="400" />
 
@@ -50,7 +55,7 @@ Happy loggin' 📝
 
 This plugin has access to four environment variables, but only one them is required for the logger to work properly.
 
-#### ✔ All API calls are sent to the database running inside the docker container
+#### ✔ All API calls are sent to the database running inside the Resurface container
 The environment variable `USAGE_LOGGERS_URL` stores this address, which by default should be the string `"http://localhost:7701/message"`
 #### ✔ All API calls are filtered using a set of rules (Optional)
 The environment variable `USAGE_LOGGERS_RULES` stores these [logging rules](#protecting-user-privacy) as a string. Even though this variable is optional, it is recommended to set it to `"include debug"` or `"allow_http_url"` when trying the plugin for the first time.
