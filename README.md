@@ -12,11 +12,11 @@ Easily log API requests and responses to your own <a href="https://resurface.io"
 ## Set up
 
 - Go to *Insomnia > Preferences > Plugins*
-  - Type in 
+- Type in
   ```
   insomnia-plugin-usage-logger
   ```
-  - Click **Install Plugin**
+- Click **Install Plugin**.
 
   <img src="https://github.com/resurfaceio/insomnia-plugin/raw/master/assets/readme/install_plugin.gif" width="768" height="400" />
 
