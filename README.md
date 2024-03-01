@@ -6,7 +6,7 @@ Easily log API requests and responses to your own <a href="https://resurface.io"
 
 ## Requirements
 
-- Kubernetes (if you have docker desktop, you already have a [local k8s cluster](https://docs.docker.com/desktop/kubernetes/)! For Linux we recommend [microk8s](https://ubuntu.com/tutorials/install-a-local-kubernetes-with-microk8s))
+- Kubernetes -- if you have docker desktop, you already have a [local k8s cluster](https://docs.docker.com/desktop/kubernetes/)! (for Linux we recommend [microk8s](https://ubuntu.com/tutorials/install-a-local-kubernetes-with-microk8s))
 - [Graylog API Security](https://resurface.io/installation) -- first node is free!
 
 ## Set up
